@@ -1,19 +1,108 @@
 <body>
-  <div class="grid">
+  <div class="main-container">
     <nav class="nav">
       <nav class="top-nav">
-        <button class="logoBtn">
+        <button class="button logo">
           <img
             alt="Koga Logo"
             src={"src/lib/assets/kogaLogo.png"}
-            width="30"
-            height="30"
+            width="25"
+            height="25"
           />
-          Home
+          <div class="button-text">Home</div>
         </button>
-        <div>Search</div>
+        <button class="button search">
+          <img
+            alt="Search Icon"
+            src={"src/lib/assets/search.png"}
+            width="25"
+            height="25"
+            style="filter: brightness(0) invert(1)"
+          />
+          <div class="button-text">Search</div>
+        </button>
       </nav>
-      <nav class="bottom-nav">bottom nav</nav>
+      <nav class="bottom-nav">
+        <div class="library-container">
+          <button class="button">
+            <img
+              alt="library-icon"
+              src={"src/lib/assets/library.png"}
+              width="25"
+              height="25"
+              style="filter: brightness(0) invert(1)"
+            />
+            <div class="button-text">James's Library</div>
+          </button>
+        </div>
+        <div class="social-conveyor-container">
+          <div class="social-conveyor">
+            <div class="social-container">
+              <button class="social-button">D</button>
+              <div class="social-text">Instagram</div>
+            </div>
+            <div class="social-container">
+              <button class="social-button">D</button>
+              <div class="social-text">Linkedin</div>
+            </div>
+            <div class="social-container">
+              <button class="social-button">D</button>
+              <div class="social-text">Spotify</div>
+            </div>
+            <div class="social-container">
+              <button class="social-button">D</button>
+              <div class="social-text">Github</div>
+            </div>
+          </div>
+          <div class="mask"></div>
+        </div>
+        <div class="albums">
+          <button class="album-button">
+            <img
+              class="album-image"
+              alt="Album Cover"
+              src={"src/lib/assets/madvillainy.png"}
+            />
+            <div class="album-info">
+              <div class="album-text">About</div>
+              <div class="made-by">Playlist &#183; James Koga</div>
+            </div>
+          </button>
+          <button class="album-button">
+            <img
+              class="album-image"
+              alt="Album Cover"
+              src={"src/lib/assets/madvillainy.png"}
+            />
+            <div class="album-info">
+              <div class="album-text">Projects</div>
+              <div class="made-by">Playlist &#183; James Koga</div>
+            </div>
+          </button>
+          <button class="album-button">
+            <img
+              class="album-image"
+              alt="Album Cover"
+              src={"src/lib/assets/madvillainy.png"}
+            />
+            <div class="album-info">
+              <div class="album-text">Music</div>
+              <div class="made-by">Playlist &#183; James Koga</div>
+            </div>
+          </button>
+          <button class="album-button">
+            <img
+              class="album-image"
+              alt="Album Cover"
+              src={"src/lib/assets/madvillainy.png"}
+            />
+            <div class="album-info">
+              <div class="album-text">Contact</div>
+              <div class="made-by">Playlist &#183; James Koga</div>
+            </div>
+          </button>
+        </div>
+      </nav>
     </nav>
     <div class="main-body">Column2</div>
   </div>
@@ -23,11 +112,12 @@
 </footer>
 
 <style>
-  .grid {
-    display: grid;
+  .main-container {
+    display: flex;
     padding: 0%;
-    grid-template-columns: minmax(150px, 20%) 80%;
-    min-height: 100vh;
+    min-height: 88vh;
+    margin-right: 0%;
+    /* min-height: 100vh; */
   }
   body {
     margin: 5px;
@@ -35,27 +125,145 @@
     background-color: #000000;
     font-family: "Yantramanav", sans-serif;
     color: white;
+    font-size: large;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
   }
   .nav {
+    flex: 25%;
+    margin-right: 8px;
     background-color: #000000;
     min-height: 100%;
-    display: grid;
-    grid-template-rows: minmax(50px, 15%) 85%;
+    display: flex;
+    flex-direction: column;
   }
   .top-nav {
-    background-color: #181818;
+    flex: 12%;
+    background-color: #121212;
     border-radius: 15px;
     padding: 20px;
     width: 240px;
-    height: 60px;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  .button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+  }
+  .button.logo {
+    padding-top: 0%;
+  }
+  .button.search {
+    margin-top: 10px;
+  }
+  .button img {
+    padding-right: 20px;
+  }
+  .button:hover {
+    cursor: pointer;
+  }
+  .button-text {
+    color: white;
+    font-family: "Yantramanav", sans-serif;
+    font-size: large;
+    font-weight: bold;
+    /* padding-top: 3px; */
+    display: inline-block;
+    position: relative;
+  }
+  /* got hover from: https://www.30secondsofcode.org/css/s/hover-underline-animation/ */
+  .button-text::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #65d36e;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  .button-text:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
   .bottom-nav {
-    background-color: #181818;
+    flex: 88%;
+    margin-top: 10px;
+    background-color: #121212;
     border-radius: 15px;
     padding: 20px;
     width: 240px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .bottom-nav .library-container {
+    margin-bottom: 10px;
+  }
+
+  .social-conveyor-container {
+    position: relative;
+    z-index: 1;
+  }
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      rgba(18, 18, 18, 1),
+      rgba(18, 18, 18, 0)
+    );
+    z-index: 2;
+  }
+  .social-conveyor {
+    display: flex;
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 2; */
+  }
+  .social-conveyor .social-container {
+    /* z-index: 1;
+    position: relative; */
+    display: flex;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 7px;
+    border-radius: 15px;
+    background-color: blue;
+    margin-right: 7px;
+  }
+  .social-conveyor .social-button {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    text-align: center;
+    border: none;
+    background-color: red;
+    margin-right: 5px;
+  }
+  .social-conveyor .social-text {
+    margin-top: 2px;
+    color: white;
+    font-family: "Yantramanav", sans-serif;
+    font-size: medium;
+  }
+  .bottom-nav .albums {
+    flex: 90%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   .main-body {
     background-image: linear-gradient(180deg, rgb(48, 48, 83), #181818);
@@ -73,13 +281,44 @@
     background-color: black;
     text-align: center;
   }
-  .logoBtn {
-    background-color: transparent;
+
+  .album-button {
     border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: row;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .album-button:hover {
+    background-color: #1a1a1a;
+    cursor: pointer;
+  }
+
+  .album-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    margin-left: 3px;
+  }
+  .album-text {
     color: white;
     font-family: "Yantramanav", sans-serif;
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
   }
-  .logoBtn:hover {
-    cursor: pointer;
+  .album-image {
+    /* background-color: red; */
+    border-radius: 8px;
+    margin-left: 0;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+  }
+  .made-by {
+    color: lightgray;
   }
 </style>
