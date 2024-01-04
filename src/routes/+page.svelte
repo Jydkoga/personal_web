@@ -154,16 +154,17 @@
     padding: 0%;
     height: calc(100vh - 90px);
     margin-right: 0%;
+    /* background-color: red; */
     /* min-height: 100vh; */
   }
   body {
     margin: 5px;
     padding: 0;
-    background-color: #000000;
+    background-color: black;
     font-family: "Yantramanav", sans-serif;
     color: white;
     font-size: large;
-    max-height: calc(100vh - 75px);
+    max-height: calc(100vh - 90px);
     overflow-y: auto;
   }
   .nav {
@@ -387,11 +388,11 @@
   }
   footer {
     height: 90px;
-    background-color: black;
     text-align: center;
+    background-color: black;
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 
     /* position: fixed; */
     /* left: 0;
